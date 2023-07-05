@@ -10,6 +10,11 @@ import { CounterButtonsComponent } from './components/counter/counter-buttons/co
 import { counterReducer } from './components/counter/state/counter.reducer';
 import { CustomCounterInputComponent } from './components/counter/custom-counter-input/custom-counter-input.component';
 import { FormsModule } from '@angular/forms';
+import { booksReducer } from './components/book-list/state/books.reducer';
+import { collectionReducer } from './components/book-list/state/collection.reducer';
+import { BookListComponent } from './components/book-list/book-list/book-list.component';
+import { BookCollectionComponent } from './components/book-list/book-collection/book-collection.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,12 +23,15 @@ import { FormsModule } from '@angular/forms';
     CounterOutputComponent,
     CounterButtonsComponent,
     CustomCounterInputComponent,
+    BookListComponent,
+    BookCollectionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({ counter: counterReducer })
+    StoreModule.forRoot({ counter: counterReducer, books: booksReducer, collection: collectionReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
